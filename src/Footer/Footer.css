@@ -1,0 +1,14 @@
+a{
+    color: grey
+}
+
+p{
+    color: grey
+}
+li{
+    text-decoration: none;
+}
+.footerSection{
+    height:200px;
+    width: 100vw;
+ }
