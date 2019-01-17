@@ -1,0 +1,27 @@
+a{
+    color: grey
+}
+
+p{
+    color: grey
+}
+
+.footerSection{
+   width: 100vw
+}
+.language{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    list-style-type: none;
+}
+.language img{
+    height:12px;
+    width: 18px;
+    cursor: pointer;
+}
+.language ul{
+    list-style-type: none;
+}
+
