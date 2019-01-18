@@ -1,0 +1,18 @@
+.liveChat{
+    height: 70px;
+    width: 70px;
+    border-radius: 70%;
+    cursor:pointer;
+    position: fixed;
+    left: 93%;
+    top:91%
+}
+
+.modal{
+    right: 10%;
+    top: 40%;
+    position: fixed;
+    height: 300px;
+    width: 200px;
+    border: 1px solid black;
+}
