@@ -22,7 +22,6 @@ class Header extends Component {
         window.removeEventListener('scroll', this.handleScroll);
       }
     render() {
-      console.log(window.scrollY)
         let headerHeight = '13vh';
         let bgColor = "rgba(0,0,0,0)";
         let boxShadow = "0 0 0 0";

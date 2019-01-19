@@ -42,7 +42,6 @@ class MyProvider extends Component{
     }
 }
 function MyConsumer(Component, props) {
-    console.log(props)
     return (props) => (
       <MyContext.Consumer>
         {

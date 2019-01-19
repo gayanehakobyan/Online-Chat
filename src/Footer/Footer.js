@@ -19,7 +19,6 @@ const language = {
 
 class Footer extends Component{
     render(){
-        console.log(this.props)
         return(
             <div className='footerSection py-6 w-screen max-h-24 min-h-24' >
                 <div className="container mx-auto px-6 table w-full ">
@@ -27,27 +26,27 @@ class Footer extends Component{
                             <p className="uppercase text-grey text-sm sm:mb-6 ">About</p> <hr/>
                             <ul className="list-reset text-xs mb-6">
                             <List>
-                                    <Link to='/' className="text-grey hover:text-grey-dark">Home</Link> 
+                                    <Link to='/' className="no-underline text-grey hover:text-grey-dark">Home</Link> 
                                 </List>
                                 <List>
-                                    <Link to='/aboutSmartEvent' className="text-grey hover:text-grey-dark">About Smart Event</Link>
+                                    <Link to='/aboutSmartEvent' className="no-underline text-grey hover:text-grey-dark">About Smart Event</Link>
                                 </List>
                                 <List>
-                                    <a href="#" className="text-grey hover:text-grey-dark">Empty</a>
+                                    <div className="no-underline text-grey hover:text-grey-dark">Empty</div>
                             </List>
                             </ul>
                         </div>
                         <div className="block sm:table-cell min-w-full" style={{width : "25%"}}>
-                            <p className="uppercase text-grey text-sm sm:mb-6 ">Product</p>
+                            <p className="no-underline uppercase text-grey text-sm sm:mb-6 ">Product</p>
                             <ul className="list-reset text-xs mb-6">
                                 <List>
-                                    <Link to='/product' className="text-grey hover:text-grey-dark">Prodact1</Link>
+                                    <Link to='/product' className="no-underline text-grey hover:text-grey-dark">Prodact1</Link>
                                 </List>
                                 <List>
-                                    <Link to='/product' className="text-grey hover:text-grey-dark">Prodact2</Link>
+                                    <Link to='/product' className="no-underline text-grey hover:text-grey-dark">Prodact2</Link>
                                 </List>
                                 <List>
-                                    <Link to='/product' className="text-grey hover:text-grey-dark">Prodact3</Link>
+                                    <Link to='/product' className="no-underline text-grey hover:text-grey-dark">Prodact3</Link>
                                 </List>                  
                             </ul>
                         </div>
@@ -55,27 +54,27 @@ class Footer extends Component{
                             <p className="uppercase text-grey text-sm sm:mb-6 ">Partners</p>
                             <ul className="block items-center list-reset text-xs mb-6">
                                 <List>
-                                    <Link to='/partner'  className="text-grey hover:text-grey-dark">Partner 1</Link>
+                                    <Link to='/partner'  className="no-underline text-grey hover:text-grey-dark">Partner 1</Link>
                                 </List>
                             <List>
-                                    <Link to='/partner'  className="text-grey hover:text-grey-dark">Partner 2</Link>
+                                    <Link to='/partner'  className="no-underline text-grey hover:text-grey-dark">Partner 2</Link>
                             </List>
                             <List>
-                                    <Link to='/partner'  className="text-grey hover:text-grey-dark">Partner 3</Link>
+                                    <Link to='/partner'  className="no-underline text-grey hover:text-grey-dark">Partner 3</Link>
                             </List>               
                             </ul>
                         </div>
                         <div className="block sm:table-cell min-w-full" >
                             <p className="uppercase text-grey text-sm sm:mb-6 ">Contact</p>
                             <ul className="list-reset text-xs mb-6">
-                            <List>
-                                    <p  className="text-grey">Adress : Hakob Hakobyan 3</p>
+                                <List>
+                                    <p className="text-grey">Adress : Hakob Hakobyan 3</p>
                                 </List>
                                 <List>
-                                    <p   className="text-grey">Tell : +374 99 09 09 09</p>
+                                    <p className="text-grey">Tell : +374 99 09 09 09</p>
                                 </List>
                                 <List>
-                                    <p  className="text-grey">info@smartevent.com</p>
+                                    <p className="text-grey">info@smartevent.com</p>
                                 </List>                   
                             </ul>
                             <ul className='language inline-block'>

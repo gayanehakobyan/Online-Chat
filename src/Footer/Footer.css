@@ -1,8 +1,5 @@
 .footerSection{
-    /* position: absolute; */
-   background: #3D4852;
-
-  
+    background: #3D4852;
 }
 .language{
     display: flex;

@@ -27,7 +27,7 @@ class LiveChat extends Component{
                         </div>
                     ): null
                 }
-                <img src={message} style={{borderRadius: '50%'}} className="liveChat" onClick={this.openChat}/>
+                <img alt="chat" src={message} style={{borderRadius: '50%'}} className="liveChat" onClick={this.openChat}/>
             </div> 
         )
     }
