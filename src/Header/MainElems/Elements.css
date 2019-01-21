@@ -1,0 +1,10 @@
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.menuIcon {
+    width: 32px;
+    height: 4px;
+    background-color: black;
+    margin: 6px 0;
+}
