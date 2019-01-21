@@ -18,9 +18,10 @@ const language = {
   
 
 class Footer extends Component{
+    
     render(){
         return(
-            <div className='footerSection py-6 w-screen max-h-24 min-h-24' >
+            <div className='footerSection py-6 w-screen max-h-24 min-h-24'>
                 <div className="container mx-auto px-6 table w-full ">
                         <div className="block sm:table-cell min-w-full" style={{width : "25%"}}> 
                             <p className="uppercase text-grey text-sm sm:mb-6 ">About</p> <hr/>

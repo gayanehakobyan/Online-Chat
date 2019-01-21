@@ -3,12 +3,13 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import './App.css';
 import Header from './Header/Header.js'
 import Home from './Home.js'
-import AboutSmartEvent from './AboutSmartEvent.js'
-import Product from './Header/MainElems/Product.js'
-import WhySmartEvent from './Header/MainElems/WhySmartEvent.js'
-import Partners from './Header/MainElems/Partners.js'
+import AboutSmartEvent from './Main/AboutSmartEvent.js'
+import Product from './Main/Product.js'
+import WhySmartEvent from './Main/WhySmartEvent.js'
+import Partners from './Main/Partners.js'
+import Contact from './Main/Contact.js'
+import Feedback from './Main/Feedback.js'
 import Footer from './Footer/Footer.js'
-import Contact from './Header/MainElems/Contact.js'
 import {MyProvider} from './Context/FullDataContex.js'
 
 class App extends Component {
@@ -20,12 +21,13 @@ class App extends Component {
             <div className="App">
               <Header />
               <Route exact path="/" component={Home} />    
-              <Route path='/contact' component={Contact} />
-              <Route path='/about_smart_event' component={AboutSmartEvent} />
-              <Route path='/why_smart_event' component={WhySmartEvent} />
-              <Route path='/product' component={Product} />
-              <Route path='/partners' component={Partners} />
-              <Footer />
+              <Route path='#contact' component={Contact} />
+              <Route path='#about_smart_event' component={AboutSmartEvent} />
+              <Route path='#why_smart_event' component={WhySmartEvent} />
+              <Route path='#feedback' component={Feedback} />
+              <Route path='#product' component={Product} />
+              <Route path='#partners' component={Partners} />
+              <Footer/>
             </div>
           </Router>
         </div>
