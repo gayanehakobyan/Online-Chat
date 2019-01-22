@@ -1,28 +1,43 @@
 import React, { Component } from 'react';
-
+import "./Developers.css"
 class Developers extends Component {
     render() {
         return (
             <div>
-                <div style={{width:"180px",height:"180px",display:"inline-block",margin:"35px"}}>
-                    <a href="https://karomourad.github.io/" className="no-underline" target="_blank"><img src="https://sites.psu.edu/siowfa16/files/2016/10/YeDYzSR-10apkm4.png" alt="Karo"/></a>
-                    <h5>Karo Mouradyan <br/> Junior-Frontend Developer </h5>
+                <div style={{width:"180px",height:"180px",display:"inline-block",margin:"35px"}} className="shadow-lg p-1">
+                    <a href="https://karomourad.github.io/" className="no-underline" target="_blank" rel="noopener noreferrer">
+                        <img src={require("../Image/SelfImages/kar.jpg")} alt="Karo" className="greyhover rounded-full "/>
+                    </a>
+                    <br/><br/>
+                    <h4>Karo Mouradyan</h4> <h5>Junior-Frontend Developer </h5>
                 </div>
-                <div style={{width:"180px",height:"180px",display:"inline-block",margin:"35px"}}>
-                    <a href="https://karomourad.github.io/" className="no-underline" target="_blank"><img src="https://sites.psu.edu/siowfa16/files/2016/10/YeDYzSR-10apkm4.png" alt="Gayane"/></a>
-                    <h5>Gayane Hakobyan <br/> Junior-Frontend Developer </h5>
+                <div style={{width:"180px",height:"180px",display:"inline-block",margin:"35px"}} className="shadow-lg p-1">
+                    <a href="https://gayanehakobyan.github.io/" className="no-underline" target="_blank" rel="noopener noreferrer">
+                        <img src={require("../Image/SelfImages/gayane.jpg")} alt="Gayane" className="greyhover rounded-full"/>
+                    </a>
+                    <br/><br/>
+                    <h4>Gayane Hakobyan</h4> <h5>Junior-Frontend Developer </h5>
                 </div>
-                <div style={{width:"180px",height:"180px",display:"inline-block",margin:"35px"}}>
-                    <a href="https://karomourad.github.io/" className="no-underline" target="_blank"><img src="https://sites.psu.edu/siowfa16/files/2016/10/YeDYzSR-10apkm4.png" alt="Karine"/></a>
-                    <h5>Karine Ghazaryan <br/> Junior-Frontend Developer </h5>
+                <div style={{width:"180px",height:"180px",display:"inline-block",margin:"35px"}} className="shadow-lg p-1">
+                    <a href="https://karineghazaryan7.github.io/" className="no-underline" target="_blank" rel="noopener noreferrer">
+                        <img src={require("../Image/SelfImages/karine.jpg")} alt="Karine" className="greyhover rounded-full"/>
+                    </a>
+                    <br/><br/>
+                    <h4>Karine Ghazaryan</h4> <h5>Junior-Frontend Developer </h5>
                 </div>
-                <div style={{width:"180px",height:"180px",display:"inline-block",margin:"35px"}} >
-                    <a href="https://karomourad.github.io/" className="no-underline" target="_blank"><img src="https://sites.psu.edu/siowfa16/files/2016/10/YeDYzSR-10apkm4.png" alt="Hripsime"/></a>
-                    <h5>Hripsime Toroyan <br/> Junior-Frontend Developer </h5>
+                <div style={{width:"180px",height:"180px",display:"inline-block",margin:"35px"}} className="shadow-lg p-1">
+                    <a href="https://ripator.github.io/personalpage/" className="no-underline" target="_blank" rel="noopener noreferrer">
+                        <img src={require("../Image/SelfImages/rip.jpg")} alt="Hripsime" className="greyhover rounded-full"/>
+                    </a>
+                    <br/><br/>
+                    <h4>Hripsime Toroyan</h4> <h5>Junior-Frontend Developer </h5>
                 </div>
-                <div style={{width:"180px",height:"180px",display:"inline-block",margin:"35px"}}>
-                    <a href="https://karomourad.github.io/" className="no-underline" target="_blank"><img src="https://sites.psu.edu/siowfa16/files/2016/10/YeDYzSR-10apkm4.png" alt="Maria"/></a>
-                    <h5>Maria Azganun <br/> Designer</h5>
+                <div style={{width:"180px",height:"180px",display:"inline-block",margin:"35px"}} className="shadow-lg p-1">
+                    <a href="https://karomourad.github.io/" className="no-underline" target="_blank" rel="noopener noreferrer">
+                        <img src={require("../Image/SelfImages/maria.jpg")} alt="Maria" className="greyhover rounded-full"/>
+                    </a>
+                    <br/><br/>
+                    <h4>Maria Stepanyan</h4> <h5>Designer</h5>
                 </div>
             </div>
         );

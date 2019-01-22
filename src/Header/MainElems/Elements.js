@@ -11,7 +11,7 @@ class Elements extends Component {
                     <NavLink to="#contact" className="no-underline"><li className="list-reset p-1 md:mr-4 lg:mr-16 hover:bg-blue-dark text-2xl text-black hover:text-white">Contact</li></NavLink>
                     <NavLink to="#why_smart_event" className="no-underline"><li className="list-reset p-1 md:mr-4 lg:mr-16 hover:bg-blue-dark text-2xl text-black hover:text-white">WhySmartEvent</li></NavLink>
                 </ul>
-                <NavLink to="#sign-in"><button className="rounded list-reset bg-blue-light text-white md:mr-4 lg:mr-12 hover:bg-blue-dark text-2xl p-2">Sign In</button></NavLink>
+                <NavLink to="#sign-in"><button className="rounded list-reset bg-blue-light text-white md:mr-4 lg:mr-12 hover:bg-blue-dark text-xl p-1 md:p-2">Sign In</button></NavLink>
                 <div className="dropdown visible md:hidden inline-block relative">
                     <div className="dropbtn mx-6 px-10 py-1 text-lg border-none cursor-pointer">
                         <div className="menuIcon"/><div className="menuIcon"/><div className="menuIcon"/>
