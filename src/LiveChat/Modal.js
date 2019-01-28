@@ -1,43 +1,91 @@
 import React, { Component } from 'react';
 import './Modal.css'
+import fire from '../config/fire.js'
 
+// let date =  new Date();
+// let time = date.getHours()+":"+date.getMinutes()+":"+date.getSeconds();
 
 class Modal extends Component{
     constructor(props){
         super(props)
         this.state={
             show:true,
-            value: ''
+            agree:false,
+            personUid:"",
+            email: "",
+            personName: "",
+            message: ""
         }
     }
     submit=(event)=>{
-        alert("The value is "+this.state.value)
         event.preventDefault();
+        localStorage.setItem('sender', this.state.personUid);
+        var database = fire.database();
+        database.ref('conversation/' + this.state.personUid).set({
+            title: "",
+            messages: [
+                {
+                    isAgent: false,
+                    message: this.state.message,
+                    timestamp: Date.now()
+                }
+            ],
+            sender: {
+                name: this.state.personName,
+                mail: this.state.email
+            }
+        });
         this.setState({
-            value:""
+            message: ""
         })
 
     }
-    inputChange=(event)=>{
-        this.setState({
-            value:event.target.value
-        })
+    inputChange = e => {
+        const { name, value } = e.target;
+        this.setState({ [name]: value });
+    };
+
+    isAgree=(e)=>{
+        e.preventDefault();
+        this.setState({ 
+            agree: true,
+            personUid: this.state.personName+"-"+Date.now(),
+         });
     }
+
     render(){
+        const {agree}=this.state
+        console.log(this.state)
         return(
             this.props.show?(
-                <div className='modalStyle'
-                    style={{ opacity :  1 , transition: 'opacity 0.3s ease-out'}}>
-                    <button onClick={this.props.closeModal}>X</button>
-                    {this.props.children}
-                    <form onSubmit={this.submit}>
+                <div className='modalStyle anim'>
+                <button onClick={this.props.closeModal}>X</button>
+                {
+                    !agree?(
+                        <form onSubmit={this.isAgree}>
+                            <label>
+                                email
+                                <input type="text" name='email'  onChange={this.inputChange} />
+                                Name
+                                <input type="text"name='personName' onChange={this.inputChange} />
+                                <input type="submit" value="Start Conversation" />
+                            </label> 
+                            <br/>
+                        </form>
+                    ): (
+                        <form  onSubmit={this.submit}>
                         <label>
                             Message
-                            <input type="text" value={this.state.value} onChange={this.inputChange} />
+                            <input type="text" name='message'value={this.state.message} onChange={this.inputChange} />
+                            <input type="submit" value="Send" />
                         </label> 
                         <br/>
-                        <input type="submit" value="Submit" />
+                        {/* {(this.state.user.messages.text) ? (<input type="submit" value="Submit" />) : null  } */}
                     </form>
+                    )
+                }
+                    
+                    
                 </div>
             ):null
             
@@ -46,3 +94,5 @@ class Modal extends Component{
 
 }
 export default Modal
+
+

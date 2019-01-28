@@ -1,31 +1,63 @@
 import React, {Component, createContext} from "react";
+import fire from './../config/fire.js';
 
 const MyContext = createContext();
 
 class MyProvider extends Component{
     constructor(props){
         super(props)
+        this.database = fire.database().ref().child('users')
         this.state={
             locale: "",
             texts:{},
+            user:null,
+            allUsers:null,
             fetchData:this.fetchData,
-            textsLoaded:false,
+            dataLoaded:false,
             err: ""
         }
+
+        this.isUserLoaded = false;
+        this.isTextLoaded = false;
     }
     componentDidMount(){
         const locale =  window.localStorage.getItem("lang") || 'en-GB' ;
         this.fetchData(locale);
+        this.authListener();
+        this.getUsers()
     }
+
+    getUsers=()=>{
+        this.database.on('value', inup=>{
+          this.setState({
+              allUsers: inup.val(),
+          })
+      })
+    }
+    authListener() {
+        fire.auth().onAuthStateChanged((user) => {
+          console.log(user);
+          this.isUserLoaded = true;
+          if (user) {
+            this.setState({ user, dataLoaded: this.isTextLoaded });
+            localStorage.setItem('user', user.uid);
+          } else {
+            this.setState({ user: null, dataLoaded: this.isTextLoaded });
+            localStorage.removeItem('user');
+          }
+        })
+      }
 
     fetchData=(locale)=>{
         if (this.state.locale !== locale) {
-            this.setState({ textsLoaded: false, locale });
+          this.isTextLoaded = false;
+            this.setState({ locale });
             window.localStorage.setItem("lang", locale);
             fetch(`http://localhost:3000/Store/${locale}.json`)
             .then(res => res.json())
             .then(json => {
-              this.setState({ textsLoaded: true, texts: json });
+              this.isTextLoaded = true;
+              this.setState({ texts: json,  dataLoaded: this.isUserLoaded });
             })
             .catch(ex => {
               this.setState({ err: ex });
@@ -43,7 +75,7 @@ class MyProvider extends Component{
 }
 function MyConsumer(Component, props) {
     return (props) => (
-      <MyContext.Consumer>
+      <MyContext.Consumer> 
         {
           value => <Component {...props} {...value}/>
         }

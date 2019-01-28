@@ -6,8 +6,14 @@ class Logo extends Component {
     
     handleClick = () => {
         const {location, history}=this.props;
-        if (location.pathname !== "/") {
+        if (location.pathname !== "/" || location.hash !== "") {
             history.push("/");
+            if (window.scrollY !== 0) {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
         } else if (window.scrollY !== 0) {
             window.scrollTo({
                 top: 0,
@@ -16,10 +22,14 @@ class Logo extends Component {
         }
     }
     
-    render() {                
+    render() {          
         return (
-            <div className="logo" onClick={this.handleClick}> 
-                <img src="https://about.canva.com/wp-content/uploads/sites/3/2016/08/Band-Logo.png" alt="logo" style={{width:"80px"}}/>
+            <div className="logo" onClick={this.handleClick}>
+                {
+                    this.props.scrolled ? 
+                        <img src={require("./logo.png")} alt="logo"/> : //poqr logo
+                        <img src={require("./logo.png")} alt="logo"/> //sovorakan logo
+                }
             </div>
         );
     }

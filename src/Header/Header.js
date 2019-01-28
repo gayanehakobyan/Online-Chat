@@ -24,12 +24,13 @@ class Header extends Component {
     render() {
         let headerHeight = '13vh';
         let boxShadow = "0 0 0 0";
-        if(this.state.scrolled) { headerHeight = '9vh';boxShadow = "0.5px 0.1px 15px #A0A0A0"}
-        else { headerHeight = '13vh'; boxShadow = "0 0 0 0 " }
+        let bgc =  "rgba(255,255,255, 0)";
+        if(this.state.scrolled) { headerHeight = '9vh';boxShadow = "0.5px 0.1px 15px #A0A0A0";bgc = "rgba(255,255,255, 1)"}
+        else { headerHeight = '13vh'; boxShadow = "0 0 0 0 "; bgc = "rgba(255,255,255, 0)";}
     
         return (
-            <div className="header" style={{height: headerHeight,backgroundColor: "white",boxShadow:boxShadow}}>
-                    <Logo/>
+            <div className="header" style={{height: headerHeight, backgroundColor: bgc, boxShadow: boxShadow}}>
+                    <Logo scrolled={this.state.scrolled}/>
                     <Elements/>
             </div>
         );

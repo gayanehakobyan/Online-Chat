@@ -1,7 +1,8 @@
 .logo {
     position: absolute;
-    width: 100px;
+    width: 12%;
+    min-width: 80px;
     height: auto;
-    bottom: 0.1vh;
-    left:25px;
+    top: -7vw;
+    left: 2vw;
 }

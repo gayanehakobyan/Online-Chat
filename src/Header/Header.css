@@ -2,6 +2,6 @@
     position: fixed;
     width: 100vw;
     top: 0;
-    transition: height 0.5s ease-in, background-color 0.2s ease-in,box-shadow 0.3s linear;
+    transition: height 0.5s ease-in, box-shadow 0.3s linear;
     z-index: 10;
 }
