@@ -1,0 +1,22 @@
+.App{
+  overflow-x:hidden;
+  text-align: center; 
+}
+
+#loader{
+  border: 16px solid black;
+  border-radius: 50%;
+  border-top: 16px solid white;
+  width: 120px;
+  height: 120px;
+  animation: example 0.5s linear infinite;
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -75px 0 0 -75px;			
+}
+@keyframes example {
+0% { transform: rotate(0deg); }
+100% { transform: rotate(360deg); }
+}	

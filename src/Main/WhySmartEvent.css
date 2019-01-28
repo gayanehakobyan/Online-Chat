@@ -1,0 +1,17 @@
+.WhySmartEvent{
+    position: flex;
+    justify-content: center;
+    align-items: center;
+}
+.WhySmartEvent div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 5%;
+    color:white;
+    box-shadow: -6px 6px 5px 0px rgba(224,195,202,0.49);
+    animation: Gradient 2s ease infinite;
+    background: 
+    linear-gradient(to left, #33cccc -35%, #ff99ff 91%)
+}
