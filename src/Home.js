@@ -7,13 +7,15 @@ import Footer from './Footer/Footer.js'
 import Main from './Main/Main.js'
 
 class Home extends Component {
+    
     render() {
+        console.log(this.props)
         return (
             <div >
                 <br /><br /><br /><br />
                 <Header />
                 <Main />
-                <Footer />
+                <Footer match={this.props.match} location={this.props.location}/>
                 <LiveChat />
             </div>
         )

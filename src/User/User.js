@@ -46,7 +46,7 @@ class User extends Component {
                 <div className="messageConatiner">
                     
                     <div className="readmessage">
-                        <h1>Domain "this.props.user.domain" </h1>
+                        <h1>Domain {this.props.user.uid} </h1>
                         {/*read message here*/ }
                     </div>
                     <div className="typemessage">

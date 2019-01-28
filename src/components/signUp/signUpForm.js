@@ -10,6 +10,8 @@ class signUp extends Component {
         email: "",
         password: "",
         company: "",
+        webSiteName:"",
+        phoneNumber:"",
         err: '',
         show: false,
         };
@@ -26,24 +28,6 @@ class signUp extends Component {
         this.setState({ [name]: value });
     };
 
-
-    // login = e => {
-    //     e.preventDefault();
-    //     fire
-    //     .auth()
-    //     .signInWithEmailAndPassword(this.state.email, this.state.password)
-    //     .then(u => { })
-    //     .catch(error => {
-    //         console.log(error);
-    //         this.setState({
-    //         email: "",
-    //         password: "",
-    //         company: "",
-    //         err: error.message,
-    //         });
-    //     });
-    // };
-
     signUp = (e) => {
         console.log(this.props.match, this.props.history)
         e.preventDefault();
@@ -53,7 +37,9 @@ class signUp extends Component {
             fire.database().ref('users/' + user.user.uid).set({
             company: this.state.company,
             email: this.state.email,
-            id: user.user.uid
+            id: user.user.uid,
+            webSiteName:this.state.webSiteName,
+            phoneNumber:this.state.phoneNumber,
             });
             this.props.history.push(`/user:${user.user.uid}`);
         })
@@ -75,21 +61,20 @@ class signUp extends Component {
                         <form className="FormFields" onSubmit={this.handleSubmit}></form>
                         <div className="FormField">
                             <label className="FormField__Label" htmlFor="name"> Website Name</label>
-                            <input type="text" id="name" className="FormField__Input" placeholder="Website URL e.g. aca.com"
-                                name="name" pattern="[a-z]{1,15}" required title="Enter a valid website name" />
+                            <input type="text" id="name" className="FormField__Input" placeholder="Website URL e.g. aca.com" onChange={this.handleChange}
+                            name="webSiteName" pattern="[a-z]{1,15}" required title="Enter a valid website name" />
                         </div>
                         <div className="FormCenter">
                             <div className="FormField">
                                 <label className="FormField__Label" htmlFor="CompanyName">Company name</label>
-                                <input type="text" id="CompanyName" className="FormField__Input" placeholder="Company name"
-                                    name="CompanyName" pattern="[a-z]{1,15}" required title="Enter a valid company name" />
+                                <input type="text" id="CompanyName"  onChange={this.handleChange} className="FormField__Input" placeholder="Company name" name="company" pattern="[a-z]{1,15}" required title="Enter a valid company name" />
                             </div>
                         </div>
                         <div className="FormCenter">
                             <div className="FormField">
                                 <label className="FormField__Label" htmlFor="PhoneNumber">Phone Number (optional)</label>
-                                <input type="text" id="PhoneNumber" className="FormField__Input" placeholder="phone number e.g. 099 57 75 88"
-                                    name="PhoneNumber" pattern="[0-9]{3} [0-9]{2} [0-9]{2} [0-9]{2}" required
+                                <input type="text" id="PhoneNumber" className="FormField__Input" placeholder="phone number e.g. 099 57 75 88" onChange={this.handleChange}
+                                    name="phoneNumber" pattern="[0-9]{3} [0-9]{2} [0-9]{2} [0-9]{2}" required
                                     title="Add valid phone number. e.g. 099 57 75 88" />
                             </div>
                         </div>

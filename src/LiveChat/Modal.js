@@ -1,42 +1,62 @@
 import React, { Component } from 'react';
 import './Modal.css'
 
-
 class Modal extends Component{
     constructor(props){
         super(props)
         this.state={
             show:true,
-            value: ''
+            conversation: {
+                messages: [
+                    {
+                        isAgent: true,
+                        text: "",
+                        timestamp: Date.now()
+                    }
+                ],
+                sender: {
+                    name: "",
+                    mail: ""
+                }
+            }
         }
     }
     submit=(event)=>{
-        alert("The value is "+this.state.value)
+        alert("The value is "+this.state.conversation.messages.text+" time : " + this.state.conversation.messages.date+" id :"+ this.state.conversation.messages.sender)
         event.preventDefault();
         this.setState({
-            value:""
+            conversation: {
+                messages: {
+                    text: "",
+                    sender: "conversationId",
+                    date: time
+                },
+            },
         })
-
     }
     inputChange=(event)=>{
         this.setState({
-            value:event.target.value
+            conversation: {
+                messages: {
+                    text: event.target.value,
+                    sender:"conversationId",
+                    date: time
+                }
+            }
         })
     }
     render(){
         return(
             this.props.show?(
-                <div className='modalStyle'
-                    style={{ opacity :  1 , transition: 'opacity 0.3s ease-out'}}>
+                <div className='modalStyle anim'>
                     <button onClick={this.props.closeModal}>X</button>
-                    {this.props.children}
                     <form onSubmit={this.submit}>
                         <label>
                             Message
-                            <input type="text" value={this.state.value} onChange={this.inputChange} />
+                            <input type="text" value={this.state.conversation.messages.text}  onChange={this.inputChange} />
                         </label> 
                         <br/>
-                        <input type="submit" value="Submit" />
+                        {(this.state.conversation.messages.text) ? (<input type="submit" value="Submit" />) : null  }
                     </form>
                 </div>
             ):null

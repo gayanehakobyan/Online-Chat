@@ -15,4 +15,7 @@
 .language ul{
     list-style-type: none;
 }
+a{
+    cursor: pointer;
+}
 
