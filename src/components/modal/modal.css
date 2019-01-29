@@ -1,0 +1,23 @@
+
+
+.FormTitle__Close {
+    /* color: #707C8B; */
+    text-decoration: none;
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    height: 25px;
+    width: 25px;
+    font-size: 160%;
+    font-weight: 500;
+    color:darkgrey;
+}
+
+.FormTitle__Close:hover
+  {
+    color: white ;
+  }

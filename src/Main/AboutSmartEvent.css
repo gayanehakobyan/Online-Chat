@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+
+* {
+ /* box-sizing: border-box; */
+ font-family: "Roboto", sans-serif;
+}
+.aboutSmartEvent{
+    position: relative;
+}
+
+.leftPart {
+ float: left;
+}
+.rightPart {
+   float: right;
+   margin-right: 8vw;
+}
+
+.textPart {
+ height: 100px;
+ width: 500px;
+ position: relative;
+ margin-top: 150px;
+ margin-left: 220px;
+ color: #1B1464;
+
+
+}
+h3{
+   font-family: system-ui;
+   font-weight: 350;
+}
+.mission
+{
+ color: #F0A5C6;
+    height: 20px;
+    width: 500px;
+    position: relative;
+    margin-top: 150px;
+    margin-left: 220px;
+   
+
+}
+h1
+{
+   font-size:30px;
+   /* font-weight: 800; */
+
+}
+
+.buttonPart{
+   height: 100px;
+   width: 320px;
+   background: linear-gradient(to right, #f0a5c6 0%, #92aefe 65%);
+   color: white;
+   border: none;
+   outline: none;
+   border-radius: 25px;
+   margin-top: 150px;
+   margin-left: 145px;
+   cursor: pointer;
+   font-size: 180%;
+   font-weight: 800;
+}
+.buttonPart:hover{
+   opacity: 0.8;
+}
+.aboutSmartEvent{
+    height: 500px;
+}
+
