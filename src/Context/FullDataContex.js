@@ -12,10 +12,33 @@ class MyProvider extends Component{
             texts:{},
             user:null,
             allUsers:null,
+            chat:null,
+            allMessageAdded:null,
             fetchData:this.fetchData,
             dataLoaded:false,
-            err: ""
+            err: "",
         }
+        this.database.on('value', inup=>{
+          this.setState({
+              allUsers: inup.val(),
+          })
+      })
+
+
+      this.allMessage=fire.database().ref().child('conversation')
+      this.allMessage.on('value', inup=>{
+        this.setState({
+          chat: inup.val(),
+        })
+      })
+      this.allMessageAdded=this.allMessage.child('conversation')
+      this.allMessageAdded1=this.allMessage.child('messages')
+      this.allMessageAdded1.on('child_added', snap=>{
+        this.setState({
+          chat: snap.val(),
+        })
+     })
+
 
         this.isUserLoaded = false;
         this.isTextLoaded = false;
@@ -24,19 +47,17 @@ class MyProvider extends Component{
         const locale =  window.localStorage.getItem("lang") || 'en-GB' ;
         this.fetchData(locale);
         this.authListener();
-        this.getUsers()
     }
 
-    getUsers=()=>{
-        this.database.on('value', inup=>{
-          this.setState({
-              allUsers: inup.val(),
-          })
-      })
-    }
+    // getUsers=()=>{
+    //     this.database.on('value', inup=>{
+    //       this.setState({
+    //           allUsers: inup.val(),
+    //       })
+    //   })
+    // }
     authListener() {
         fire.auth().onAuthStateChanged((user) => {
-          console.log(user);
           this.isUserLoaded = true;
           if (user) {
             this.setState({ user, dataLoaded: this.isTextLoaded });

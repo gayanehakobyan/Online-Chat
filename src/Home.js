@@ -9,7 +9,6 @@ import Main from './Main/Main.js'
 class Home extends Component {
     
     render() {
-        console.log(this.props)
         return (
             <div >
                 <br /><br /><br /><br />

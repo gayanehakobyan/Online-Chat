@@ -18,6 +18,22 @@ class App extends Component {
     }
   }
 
+  onUnload=(event)=> { 
+    event.preventDefault();
+    console.log('true')
+   localStorage.setItem('close', 'true');
+    event.returnValue = "Hiii"
+}
+
+
+componentDidMount() {
+   window.addEventListener("beforeunload", this.onUnload)
+}
+
+componentWillUnmount() {
+    window.removeEventListener("beforeunload", this.onUnload)
+}
+
   render() {
     return (
       <Router>

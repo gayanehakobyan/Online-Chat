@@ -9,8 +9,17 @@ const  config = {
   messagingSenderId: "256646374216"
   };
  const fire = firebase.initializeApp(config);
+//  let chat=fire.database().ref().child('conversation')
+//  chat.on('value', inup=>{
+//   console.log(inup.val())
+// })
 
- 
+
+
+// //  let chatList=chat.child('messages')
+//  chat.on('child_removed', snap=>{
+//      console.log(snap)
+//  })
 
 export default fire 
 

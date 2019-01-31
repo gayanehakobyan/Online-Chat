@@ -17,10 +17,10 @@ class Modal extends Component{
             message: ""
         }
     }
-    submit=(event)=>{
+    send=(event)=>{
         event.preventDefault();
         localStorage.setItem('sender', this.state.personUid);
-        var database = fire.database();
+        let database = fire.database();
         database.ref('conversation/' + this.state.personUid).set({
             title: "",
             messages: [
@@ -32,7 +32,8 @@ class Modal extends Component{
             ],
             sender: {
                 name: this.state.personName,
-                mail: this.state.email
+                mail: this.state.email,
+                personUid: this.state.personUid
             }
         });
         this.setState({
@@ -55,14 +56,12 @@ class Modal extends Component{
 
     render(){
         const {agree}=this.state
-        console.log(this.state)
         return(
             this.props.show?(
                 <div className='modalStyle anim'>
-                <button onClick={this.props.closeModal}>X</button>
                 {
                     !agree?(
-                        <form onSubmit={this.isAgree}>
+                        <form onSubmit={this.isAgree} action="#">
                             <label>
                                 email
                                 <input type="text" name='email'  onChange={this.inputChange} />
@@ -73,10 +72,10 @@ class Modal extends Component{
                             <br/>
                         </form>
                     ): (
-                        <form  onSubmit={this.submit}>
+                        <form  onSubmit={this.send} action="#">
                         <label>
                             Message
-                            <input type="text" name='message'value={this.state.message} onChange={this.inputChange} />
+                            <input type="text" name='message' value={this.state.message} onChange={this.inputChange} />
                             <input type="submit" value="Send" />
                         </label> 
                         <br/>

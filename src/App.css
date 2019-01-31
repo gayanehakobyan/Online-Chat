@@ -1,6 +1,11 @@
 .App{
   overflow-x:hidden;
   text-align: center; 
+  background-size: cover;
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat;
+  background-image: url("./Image/bgIcon.png");
+
 }
 
 #loader{

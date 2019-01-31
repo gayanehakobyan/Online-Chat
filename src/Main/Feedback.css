@@ -1,0 +1,32 @@
+.amsversAndQuestion{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.animationchating {
+    margin-top: 28vh;
+    margin-bottom: 28vh;
+    width: 65vw;
+    height: 65vw;
+    min-width: 60%;
+    min-height: 60%;
+    max-width: 60%;
+    max-height: 60%;
+    display: inline-block;
+    animation: animating 4s infinite;
+    background-image: url("../Image/chating/chating1.png");
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: contain; 
+}
+
+@keyframes animating {
+	0%  {background-image: url("../Image/chating/chating1.png")}	
+	16% {background-image: url("../Image/chating/chating2.png")}
+	32% {background-image: url("../Image/chating/chating3.png")}
+	48% {background-image: url("../Image/chating/chating4.png")}
+	64% {background-image: url("../Image/chating/chating5.png")}
+	70% {background-image: url("../Image/chating/chating6.png")}
+	86% {background-image: url("../Image/chating/chating7.png")}
+}

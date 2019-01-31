@@ -24,12 +24,16 @@ class Logo extends Component {
     
     render() {          
         return (
-            <div className="logo" onClick={this.handleClick}>
-                {
-                    this.props.scrolled ? 
-                        <img src={require("./logo.png")} alt="logo"/> : //poqr logo
-                        <img src={require("./logo.png")} alt="logo"/> //sovorakan logo
-                }
+            <div >
+            { 
+            this.props.scrolled ? 
+                <div className="smalllogo" onClick={this.handleClick} style={{height:"100%"}}>
+                    <img src={require("./smallLogo.png")} alt="logo" className="smalllogoimg"/>
+                </div> : //poqr logo
+                <div className="logo" onClick={this.handleClick}  style={{height:"100%"}}>
+                    <img src={require("./logo.png")} alt="logo" className="logoimg"/>
+                </div>//sovorakan logo
+            }
             </div>
         );
     }

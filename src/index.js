@@ -5,6 +5,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { MyProvider } from './Context/FullDataContex';
 
+
 ReactDOM.render(<MyProvider><App /></MyProvider>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

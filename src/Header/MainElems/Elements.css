@@ -8,3 +8,12 @@
     background-color: black;
     margin: 6px 0;
 }
+
+.guyn {
+    background-color: #5C3C79;
+}
+
+.guyn:hover {
+    background-color: rgb(148, 125, 158);
+    transform: scale(1.05)
+}

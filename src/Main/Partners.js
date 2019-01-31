@@ -32,35 +32,33 @@ class Partners extends Component {
     let currentPosition = +this.slider.style.marginLeft.slice(0, -2);
     console.log(allWidth, currentPosition, window.innerWidth )
     if(allWidth+currentPosition > window.innerWidth && direction === "left"){
-      this.slider.style.marginLeft =  currentPosition - 300 + "px";
+      this.slider.style.marginLeft =  currentPosition - 200 + "px";
     }
     if (currentPosition < 0 && direction === "right") {
-      this.slider.style.marginLeft =  currentPosition + 300 + "px";
+      this.slider.style.marginLeft =  currentPosition + 200 + "px";
     }
   }
 
   render() {
+      const {texts}= this.props
       let allPartners= null
       if(this.props.allUsers){
         allPartners = Object.keys(this.props.allUsers)
       }
-
-
-  
-      console.log(allPartners, this.props.allUsers)
+      // console.log(allPartners, this.props.allUsers)
     return (
       <div id="partners"> 
         {
           this.state.ready && allPartners ? (
             <>
-            <h2 className='px-2 py-2 m-6 lg:text-5xl sm:text-3xl block'> Our Partners!!!</h2>
+            <h2 style={{color:"#5C3C79",fontSize: "calc( 25px + 3vw )",fontWeight: "bold",margin:"5vw"}}>{texts.ourPartners}</h2>
             <div style={styles.container} className="container">
+            <a className="prev" onClick={e => this.slide("right")} >&#10094;</a>
               <div style={styles.slider} ref={element => this.slider = element}>
-              <a className="prev" onClick={e => this.slide("right")} >&#10094;</a>
                 {
                   allPartners.map((partner, i) => (
-                  <div key={partner} style={{ width:'400px'}} className="partner">
-                    Partner {i+1} {this.props.allUsers[partner].company}
+                  <div key={partner} style={{ width:'200px'}} className="partner">
+                     {this.props.allUsers[partner].company}
                   </div>))
                 }
               </div>
@@ -75,12 +73,14 @@ class Partners extends Component {
 }
 export default MyConsumer(Partners);
 
+
 const styles = {
   container: {
     display: "flex",
     height: "40vh",
     width: "100vw",
-    alignItems: "center"
+    alignItems: "center",
+    overflow: "hidden",
   },
   slider: {
     margin : '10',
@@ -88,6 +88,7 @@ const styles = {
     display: "flex",
     overflow: "hidden",
     marginLeft: 0,
+    marginRight:0,
     transition: "margin 0.3s ease-out"
   },
 };

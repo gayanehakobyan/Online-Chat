@@ -1,24 +1,6 @@
 import React from 'react';
-const backgroundStyle =
-{
-    position: "fixed",
-    top:0,
-    button: 20,
-    left: 0,
-    right: 0,
-    backgroundColor: "rgba(0,0,0,0.5)",
-    zIndex: 21,
-    // padding:50
-}
-const modalStyle =
-{
-    backgroundColor: "rgba(0,0,0,0.5)",
-    // maxWidth: 1000,
-    // minHeight:300,
-    margin: "0 auto",
-    padding: 10,
-    // position: "relative"
-}
+import "./modal.css"
+
 export default class Modal extends React.Component {
     constructor(props) {
         super(props); 
@@ -36,11 +18,11 @@ export default class Modal extends React.Component {
     render() {
         return (
             (!this.props.show || !this.state.show) ? null : (
-            <div style={backgroundStyle}>
-                <div style={modalStyle}>
-                <div>
-                <button className="FormTitle__Close" onClick = {this.onClose}>×</button>
-                </div>
+            <div className="backgroundsignStyle">
+                <div className="modalsignStyle">
+                    <div>
+                        <button className="FormTitle__Close" onClick = {this.onClose}>×</button>
+                    </div>
                     {this.props.children}
                 </div>
             </div>

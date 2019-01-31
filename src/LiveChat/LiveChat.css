@@ -1,18 +1,34 @@
 .liveChat{
-    height: 70px;
-    width: 70px;
-    border-radius: 70%;
+    height: 200px;
+    width: 200px;
     cursor:pointer;
     position: fixed;
     bottom: 3%;
     right:2%;
 }
 
+.liveChatOpen{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:linear-gradient(to left, #92AEFE -35%,  #F0A5C6 91%);
+    font-size: 30px;
+    height: 65px;
+    width: 65px;
+    border-radius: 50%;
+    cursor:pointer;
+    position: fixed;
+    bottom: 5%;
+    right:3%;
+}
 .modal{
+    border-radius: 20%;
     bottom: 16%;
     right:2%;
     position: fixed;
     height: 300px;
     width: 200px;
-    border: 1px solid black;
+    /* border: 1px solid black; */;
+
 }
+

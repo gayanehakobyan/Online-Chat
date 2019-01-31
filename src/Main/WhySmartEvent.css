@@ -1,9 +1,9 @@
-.WhySmartEvent{
+/* .WhySmartEvent{
     position: flex;
     justify-content: center;
     align-items: center;
-}
-.WhySmartEvent div{
+} */
+.WhySmartEvent img{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -13,5 +13,17 @@
     box-shadow: -6px 6px 5px 0px rgba(224,195,202,0.49);
     animation: Gradient 2s ease infinite;
     background: 
-    linear-gradient(to left, #33cccc -35%, #ff99ff 91%)
 }
+.WhySmartEvent{
+    display: block;
+    position: flex;
+    justify-content: center;
+    align-items: center;
+   margin-top: 800px;
+    bottom: 500px;
+ }
+ h2{
+    color: #5C3C79;
+    /* font-size: 400%;
+    margin-top: 100px; */
+ }

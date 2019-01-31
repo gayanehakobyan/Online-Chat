@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import './AboutSmartEvent.css'
 import Modal from '../components/modal/modal.js'
 import SignUpForm from '../components/signUp/signUpForm'
+import { MyConsumer } from '../Context/FullDataContex.js'
+
+
 class AboutSmartEvent extends Component {
   constructor(props) {
     super(props);
@@ -15,19 +18,17 @@ class AboutSmartEvent extends Component {
     })
   }
   render() {
+    const {texts}=this.props
     return (
-      <div className="App">
-        <div className="leftPart">
-          <div className="textPart">
-          <h3>We are a young team , building live chat,
-             wich is the fastest way to engage your customers. 
-             Talk with your customers in real-time.</h3>
+      <div className='aboutSmartEvent'>
+         
+          <div className="leftPart">
+            <p className="mission">{texts.mission}</p>
+            <p className="textPart">{texts.missionText}</p>
           </div>
-          <button className="buttonPart" onClick={this.handlClick}>Get Started</button>
-        </div>
-        <div className="rightPart">
-          <div className="imagePart"></div>
-        </div>
+          <div>
+            <button className="buttonPart" onClick={this.handlClick}>{texts.signUp}</button>
+          </div>
         {         
           this.state.show ? <Modal show={this.state.show} handlClick={this.handlClick}><SignUpForm/></Modal> :null
         }
@@ -35,4 +36,6 @@ class AboutSmartEvent extends Component {
     );
   }
 }
-export default AboutSmartEvent;
+export default MyConsumer(AboutSmartEvent);
+
+
