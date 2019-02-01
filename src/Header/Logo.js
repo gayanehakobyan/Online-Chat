@@ -30,7 +30,7 @@ class Logo extends Component {
                 <div className="smalllogo" onClick={this.handleClick} style={{height:"100%"}}>
                     <img src={require("./smallLogo.png")} alt="logo" className="smalllogoimg"/>
                 </div> : //poqr logo
-                <div className="logo" onClick={this.handleClick}  style={{height:"100%"}}>
+                <div className="logo " onClick={this.handleClick}  style={{height:"100%"}}>
                     <img src={require("./logo.png")} alt="logo" className="logoimg"/>
                 </div>//sovorakan logo
             }

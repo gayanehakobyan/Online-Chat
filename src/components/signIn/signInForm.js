@@ -33,9 +33,9 @@ class signIn extends React.Component {
         .auth()
         .signInWithEmailAndPassword(this.state.email, this.state.password)
         .then(user => {
-            console.log(user)
+            console.log(user, user.user);
             const { history}=this.props
-            history.push(`/user${user.user.uid}`)
+            history.push(`/user/${user.user.uid}`)
          })
         .catch(error => {
             console.log(error);

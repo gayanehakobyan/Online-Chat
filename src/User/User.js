@@ -5,18 +5,14 @@ import { MyConsumer } from './../Context/FullDataContex.js'
 
 class User extends Component {
     constructor(props){
-        super(props)
-        this.database = fire.database().ref().child('users')
-        this.databaseConversation = fire.database().ref().child('conversation')
+        super(props);
 
         this.state={
-            initialUser:null,
-            userId:null,
-            chat:null,
             clients:null,
             client:null,
             messageText:'',
-            conversation:null
+            conversation:null,
+            user: null
         }
     }
     
@@ -27,27 +23,27 @@ class User extends Component {
     };
 
 
-    getUsers=()=>{
-        this.databaseConversation.on('value', inup=>{
-            this.setState({
-              chat: inup.val(),
-            })
-        })
-    }
+    // getUsers=()=>{
+    //     this.databaseConversation.on('value', inup=>{
+    //         this.setState({
+    //           chat: inup.val(),
+    //         })
+    //     })
+    // }
 
     componentDidMount() {
-        this.setState({
-            userId: this.props.user.uid 
+        fire.database().ref('conversation/' + this.props.user.webSiteName).on("value", snapshot => {
+            this.setState({clients: snapshot.val()});
         })
     }
 
     send=(event)=>{
-        let {client}=this.state
-        console.log(this.state.clients[2], client)
-        let message = this.textarea.value;
         event.preventDefault();
+        const {user} = this.props;
+        let {client}=this.state
+        let message = this.textarea.value;
         let database = fire.database();
-        let newPostRef = database.ref('conversation/' + client).child('messages').push();
+        let newPostRef = database.ref('conversation/' + user.webSiteName + "/" + client).child('messages').push();
         newPostRef.set({
             isAgent: true,
             message: message,
@@ -59,22 +55,15 @@ class User extends Component {
     }
 
 
-    getClients=(e)=> {
-        let arr= [];
-        this.state.chat ? this.setState({ 
-            clients: Object.keys(this.state.chat).map((el,i) => arr[i]=this.state.chat[el])
-        }) : this.setState({
-                clients: null
-            });
-    }
-   
     readMessage=(e)=> {
+        const clientKey = e.currentTarget.id;
+        console.log(e);
         this.setState({
             conversation:null
         })
         let arr= {};
-        console.log("e.target.value",e.target.value,this.state.chat[`${e.target.value}`])
-        let x = this.state.chat[`${e.target.value}`].messages;
+        let x = this.props.chat[clientKey].messages;
+        console.log(x)
 
         Object.keys(x).map((el,i)=> arr[i]=x[el].message);
         this.setState({
@@ -83,29 +72,14 @@ class User extends Component {
         })
     }
     render() {
-        
-        console.log(this.state.chat, 'client', this.state.clients)
-        const {userId}=this.state ;
-        // const {allUsers}=this.props;
-         let chatInstance=null
-        // let userInstance = null;
-
-        // if(allUsers){
-        //     userInstance = allUsers[`${userId}`]
-        // }
-        // if(this.state.chat){
-        //     chatInstance=this.state.chat["Davit-1548698885024"]
-        // }
-        
-        if(this.state.clients){ this.state.clients.map((el,i) => console.log("sdsd",el))}
-        // console.log("clients",this.state.clients,"chat",this.state.chat,this.state.userId,this.props.user.email)
-        // console.log("conversation",this.state.conversation)
+       const {clients} = this.state;
+       console.log(this.state.conversation);
 
 
         return (
             <div style={{width:"100vw",height:"80vh"}}>
-            <button onClick={this.getUsers}>see chat</button>
-            <button onClick={this.getClients}>clients</button>
+            {/* <button onClick={this.getUsers}>see chat</button> */}
+            {/* <button onClick={this.getClients}>clients</button> */}
                 <div className="fields">
                     <ul style={{listStyle: "none",width:"100%",height:"100%",padding:"0"}}>
                         <li style={{width:"100%",height:"30vh",display:"inline-block"}}>
@@ -119,10 +93,10 @@ class User extends Component {
                 <div className="messageConatiner">
                     
                     <div className="readmessage">
-                        <h1>Domain {this.state.userId} </h1>
+                        <h1>Domain</h1>
                     {
-                        this.state.clients?(
-                        <div >{this.state.clients.map(el => <button key={el.sender.personUid} className='customers' onClick={this.readMessage} value={el.sender.personUid}>{el.sender.name}</button>)}</div>
+                        clients?(
+                        <div >{Object.keys(clients).map(clientKey => <button key={clients[clientKey].sender.personUid} id={clientKey} className='customers' onClick={this.readMessage} value={clients[clientKey].sender.personUid}>{clients[clientKey].sender.name}</button>)}</div>
                         ):null
                     }
                     {

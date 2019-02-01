@@ -27,7 +27,7 @@ class App extends Component {
 
 
 componentDidMount() {
-   window.addEventListener("beforeunload", this.onUnload)
+   window.addEventListener("beforeunload", this.onUnload1)
 }
 
 componentWillUnmount() {
@@ -43,8 +43,8 @@ componentWillUnmount() {
               this.props.user ? (
                 <>
                   <LogOut />
-                  <Route exact path="/user:userId" 
-                  component={()=> <User user={this.props.user} />} />
+                  <Route exact path="/user/:userId" 
+                  component={User} />
                 </>
               ) : (
                   <div >

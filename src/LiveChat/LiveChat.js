@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import './LiveChat.css';
-import message from './../Image/message.png';
 import Modal from './Modal.js';
 import fire from '../config/fire.js';
 
@@ -13,7 +12,6 @@ class LiveChat extends Component{
         }
     }
     closeChat=()=>{
-        console.log('ttrrrr')
         this.setState({
             opened:!this.state.opened
         })
@@ -36,10 +34,10 @@ class LiveChat extends Component{
                     opened? (
                         <div className='modal sm:50'> 
                             <Modal show={opened} closeModal={this.openChat} />
-                            <div className="liveChatOpen" onClick={this.closeChat}>X</div>
+                            <div className="liveChatOpen" onClick={this.closeChat}></div>
                         </div>
 
-                    ): <img alt="chat" src={message}  className="liveChat" onClick={this.openChat}/>
+                    ): <div className="liveChat" onClick={this.openChat}></div>
                 }
                 
             </div> 
