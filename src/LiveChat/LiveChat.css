@@ -1,0 +1,49 @@
+.liveChat{
+    height: 20vh;
+    width: 20vw;
+    min-width: 100px;
+    min-height: 100px;
+    max-width: 250px;
+    max-height: 250px;
+    cursor:pointer;
+    position: fixed;
+    bottom: 3%;
+    right:0%;
+    animation: chatanim 0.5s infinite;
+    background-image: url("../Image/chatImage/chat1.svg");
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: contain; 
+}
+
+@keyframes chatanim {
+	0%  {background-image: url("../Image/chatImage/chat1.svg")}
+	33% {background-image: url("../Image/chatImage/chat2.svg")}
+	66% {background-image: url("../Image/chatImage/chat3.svg")}
+}
+
+.liveChatOpen{
+    background-image: url("../Image/chatImage/close.svg");
+    height: 20vh;
+    width: 20vw;
+    min-width: 100px;
+    min-height: 100px;
+    max-width: 250px;
+    max-height: 250px;
+    border-radius: 50%;
+    cursor:pointer;
+    position: fixed;
+    bottom: 3%;
+    right: 0%;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: contain; 
+}
+.modal{
+    border-radius: 20%;
+    bottom: 22%;
+    right:2%;
+    position: fixed;
+    height: 300px;
+    width: 200px;
+}
